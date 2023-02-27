@@ -1,12 +1,5 @@
 #include <cstdio>
 
-int pow2(int num) {
-    int res = 1;
-    for (int i = 0; i < num; i++)
-        res *= 2;
-    return res;
-}
-
 int isLess(char* a, char* b) {
     int i = 0;
     while (a[i] != '\0' && b[i] != '\0' && a[i] == b[i]) {
@@ -53,7 +46,7 @@ int main() {
     }
 
 
-    int t = pow2(p);
+    int t = 1 << p;
     char **list = new char*[t + 100];
     bool *printed = new bool[t + 100];
 
