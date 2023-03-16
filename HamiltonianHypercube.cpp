@@ -8,14 +8,12 @@ long toDecimal(char* C, int N) {
 	for (int i = 0; i < N; i++) {
 		int val = C[i] - '0';
 
-		if (val != rev) {		// reverse, 0 or not reverse, 1
+		if (val != rev) 		// reverse, 0 or not reverse, 1
 			result += one << (N - i - 1);
-		}
-		if (C[i] == '1') {
-			rev = !rev;
-		}
-	}
 
+		if (val)
+			rev = !rev;
+	}
 	return result;
 }
 
