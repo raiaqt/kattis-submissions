@@ -27,9 +27,9 @@ int main() {
 	scanf("%s %s", A, B);
 
 	long diff = toDecimal(A, N) - toDecimal(B, N);
-	if (diff < 0) {
+	if (diff < 0)
 		diff *= -1;
-	}
+
 	diff--;
 
 	printf("%ld\n", diff);
