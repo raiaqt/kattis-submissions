@@ -1,20 +1,12 @@
 #include <cstdio>
 
-int gcd(int n, int d) {
+long gcd(long n, long d) {
     while (d != 0) {
-        int temp = d;
+        long temp = d;
         d = n % d;
         n = temp;
     }
     return n;
-}
-
-bool isNegative(int* n) {
-    if (*n < 0) {
-        *n = *n * -1;
-        return true;
-    }
-    return false;
 }
 
 void solve() {
@@ -22,8 +14,8 @@ void solve() {
     
     scanf("%s", input);
     
-    int a = 0;
-    int b = 0;
+    long a = 0;
+    long b = 0;
     bool negative;
     
     int i = 0;
@@ -49,35 +41,26 @@ void solve() {
         mult *= 10;
     }
     
-    int g1 = gcd(a, b);
+    long g1 = gcd(a, b);
     a /= g1;
     b /= g1;
     a = negative ? a * -1 : a;
-    int num = 45 * a - 1440 * b;
-    int denum = 81 * b;
+    long num = 45 * a - 1440 * b;
+    long denum = 81 * b;
     
-    int g = gcd(num, denum);
+    long g = gcd(num, denum);
     num /= g;
     denum /= g;
     
-    int neg = false;
-    printf("num %d %d\n", num, denum);
-    if (isNegative(num)) {
-        neg = !neg;
-    }
-    if (isNegative(denum)) {
-        neg = !neg;
+    if (denum < 0) {
+        denum *= -1;
+        num *= -1;
     }
     
-    printf("%s%d/%d\n", neg ? "-" : "", num, denum);
-    
-    float f = (float)num / (float)denum;
-    printf("%s%f\n", neg ? "-" : "", f);
-
+    printf("%ld/%ld\n", num, denum);
 }
+
 int main() {
-    while (true) {
-        solve();
-    }
+    solve();
     return 0;
 }
