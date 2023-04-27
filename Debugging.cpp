@@ -11,16 +11,28 @@ int main() {
 	memo[2] = R + P;
 
 	for (int i = 3; i <= N; i++) {
-		int cand1 = memo[i - 1] + P;		// if just added print
-		int cand2 = memo[(i + 1) / 2] + P + R;
+		long long int cand1 = memo[i - 1] + P;		// if just added print
+		long long int cand2 = memo[(i + 1) / 2] + P + R;
+		long long int cand3 = memo[(i + 2) / 3] + (2 * P) + R;
+		long long int cand4 = memo[(i + 6) / 7] + (6 * P) + R;
 
-		printf("cand[%d]: %d %d\n", i, cand1, cand2);
+//		printf("cand[%d]: %lld %lld %lld %lld ", i, cand1, cand2, cand3, cand4);
 		memo[i] = cand1 < cand2 ? cand1 : cand2;
+		memo[i] = cand3 < memo[i] ? cand3 : memo[i];
+		if (memo[i] == cand1) {
+//			printf("1\n");
+		} else if (memo[i] == cand2){
+//			printf("2\n");
+		} else if (memo[i] == cand3) {
+//			printf("3\n");
+		} else {
+			printf("%d 5\n", i);
+		}
 	}
 
-	for (int i = 0; i <= N; i++) {
-		printf("memo[%d]: %d\n", i, memo[i]);
-	}
+//	for (int i = 0; i <= N; i++) {
+//		printf("memo[%d]: %lld\n", i, memo[i]);
+//	}
 
 	printf("%lld\n", memo[N]);
 	return 0;
