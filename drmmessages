@@ -1,0 +1,31 @@
+#include <cstdio>
+
+int main()
+{
+    char in[15005];
+    
+    scanf("%s", in);
+    
+    int length = 0;
+    int total = 0;
+    
+    // count string size and total number count
+    while (in[length] != '\0') {
+        total += in[length] - 'A';
+        length++;
+    }
+    
+    // enter values to output based on total
+    char out[7505];
+    int i = 0;
+    while (i < length / 2) {
+        int num = (in[i] + in[i + (length / 2)] + total) % 26;
+        out[i] = 'A' + num;
+        i++;
+    }
+    out[i] = '\0';
+    
+    printf("%s\n", out);
+    
+    return 0;
+}
