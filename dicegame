@@ -1,0 +1,30 @@
+#include <cstdio>
+
+int main()
+{
+    int gunnar = 0;
+    int emma = 0;
+    
+    for (int i = 0; i < 4; i++) {
+        int g;
+        scanf("%d", &g);
+        gunnar += g;
+    }
+    
+    
+    for (int i = 0; i < 4; i++) {
+        int e;
+        scanf("%d", &e);
+        emma += e;
+    }
+    
+    if (emma > gunnar) {
+        printf("Emma\n");
+    } else if (emma < gunnar) {
+        printf("Gunnar\n");
+    } else {
+        printf("Tie\n");
+    }
+    
+    return 0;
+}
